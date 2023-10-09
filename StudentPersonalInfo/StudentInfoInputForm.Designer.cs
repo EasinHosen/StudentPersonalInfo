@@ -1,6 +1,6 @@
 ﻿namespace StudentPersonalInfo
 {
-    partial class Form1
+    partial class StudentInfoInputForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -54,7 +54,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(395, 9);
+            label1.Location = new Point(345, 10);
             label1.Name = "label1";
             label1.Size = new Size(415, 37);
             label1.TabIndex = 0;
@@ -181,7 +181,6 @@
             txtEamil.Name = "txtEamil";
             txtEamil.Size = new Size(380, 23);
             txtEamil.TabIndex = 4;
-            //txtEamil.Validating += txtEamil_Validating;
             // 
             // txtFName
             // 
@@ -226,12 +225,12 @@
             btnViewAll.UseVisualStyleBackColor = true;
             btnViewAll.Click += btnViewAll_Click;
             // 
-            // Form1
+            // StudentInfoInputForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(1075, 536);
+            ClientSize = new Size(1074, 536);
             Controls.Add(btnViewAll);
             Controls.Add(btnAddMore);
             Controls.Add(txtAddress);
@@ -251,9 +250,8 @@
             Controls.Add(btnUpload);
             Controls.Add(pbSelectedImage);
             Controls.Add(label1);
-            Name = "Form1";
+            Name = "StudentInfoInputForm";
             Text = "Form1";
-            //FormClosing += Form1_FormClosing;
             ((System.ComponentModel.ISupportInitialize)pbSelectedImage).EndInit();
             ResumeLayout(false);
             PerformLayout();

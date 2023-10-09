@@ -5,11 +5,11 @@ using System.Text.RegularExpressions;
 
 namespace StudentPersonalInfo
 {
-    public partial class Form1 : Form
+    public partial class StudentInfoInputForm : Form
     {
         private string imageLocation = "";
         private string emailPattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
-        public Form1()
+        public StudentInfoInputForm()
         {
             InitializeComponent();
         }
@@ -59,7 +59,8 @@ namespace StudentPersonalInfo
                 {
                     MessageBox.Show("Please select an Image!", "Invalid Image!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else {
+                else
+                {
                     GlobalStaticClass.StudentList.Add(student);
 
                     foreach (Control control in this.Controls)
@@ -81,9 +82,10 @@ namespace StudentPersonalInfo
                         i++;
                     }
                 }
-                
+
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("One or more field is empty!");
             }
 
@@ -98,7 +100,7 @@ namespace StudentPersonalInfo
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                
+
                 e.Handled = true;
             }
         }
@@ -107,7 +109,7 @@ namespace StudentPersonalInfo
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                
+
                 e.Handled = true;
             }
         }
