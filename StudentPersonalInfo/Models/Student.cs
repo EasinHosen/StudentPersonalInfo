@@ -7,22 +7,27 @@ using System.Threading.Tasks;
 
 namespace StudentPersonalInfo.Models
 {
-    internal class Student
+    public class Student
     {
         public int Id { get; set; }
-        [Required]
+        
         public string Name { get; set; }
-        [Required]
+        
         public string Phone { get; set; }
-        [Required]
+        
         public string Email { get; set; }
-        [Required]
+        
         public string FatherName { get; set; }
-        [Required]
+        
         public string MotherName { get; set; }
-        [Required]
+        
         public string Address { get; set; }
-        [Required]
+        
         public string ImageLocation { get; set; }
+
+        public override string ToString()
+        {
+            return $"Student ID: {Id}\nName: {Name}\nPhone: {Phone}\nEmail: {Email}\nFather's Name: {FatherName}\nMother's Name: {MotherName}\nAddress: {Address}\nImage Location: {ImageLocation}";
+        }
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            pbUpload = new PictureBox();
+            pbSelectedImage = new PictureBox();
             btnUpload = new Button();
             label2 = new Label();
             label3 = new Label();
@@ -47,7 +47,7 @@
             txtAddress = new TextBox();
             btnAddMore = new Button();
             btnViewAll = new Button();
-            ((System.ComponentModel.ISupportInitialize)pbUpload).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbSelectedImage).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -60,15 +60,16 @@
             label1.TabIndex = 0;
             label1.Text = "Student's Personal Information";
             // 
-            // pbUpload
+            // pbSelectedImage
             // 
-            pbUpload.Image = Properties.Resources.person_placeholder;
-            pbUpload.Location = new Point(857, 107);
-            pbUpload.Name = "pbUpload";
-            pbUpload.Size = new Size(185, 176);
-            pbUpload.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbUpload.TabIndex = 1;
-            pbUpload.TabStop = false;
+            pbSelectedImage.Image = Properties.Resources.person_placeholder;
+            pbSelectedImage.InitialImage = Properties.Resources.person_placeholder;
+            pbSelectedImage.Location = new Point(857, 107);
+            pbSelectedImage.Name = "pbSelectedImage";
+            pbSelectedImage.Size = new Size(185, 176);
+            pbSelectedImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbSelectedImage.TabIndex = 1;
+            pbSelectedImage.TabStop = false;
             // 
             // btnUpload
             // 
@@ -79,6 +80,7 @@
             btnUpload.TabIndex = 2;
             btnUpload.Text = "Upload Photo";
             btnUpload.UseVisualStyleBackColor = true;
+            btnUpload.Click += btnUpload_Click;
             // 
             // label2
             // 
@@ -156,6 +158,7 @@
             txtID.Name = "txtID";
             txtID.Size = new Size(380, 23);
             txtID.TabIndex = 4;
+            txtID.KeyPress += txtID_KeyPress;
             // 
             // txtName
             // 
@@ -170,6 +173,7 @@
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(380, 23);
             txtPhone.TabIndex = 4;
+            txtPhone.KeyPress += txtPhone_KeyPress;
             // 
             // txtEamil
             // 
@@ -177,6 +181,7 @@
             txtEamil.Name = "txtEamil";
             txtEamil.Size = new Size(380, 23);
             txtEamil.TabIndex = 4;
+            txtEamil.Validating += txtEamil_Validating;
             // 
             // txtFName
             // 
@@ -208,6 +213,7 @@
             btnAddMore.TabIndex = 5;
             btnAddMore.Text = "Insert More(+)";
             btnAddMore.UseVisualStyleBackColor = true;
+            btnAddMore.Click += btnAddMore_Click;
             // 
             // btnViewAll
             // 
@@ -218,6 +224,7 @@
             btnViewAll.TabIndex = 5;
             btnViewAll.Text = "View All >>";
             btnViewAll.UseVisualStyleBackColor = true;
+            btnViewAll.Click += btnViewAll_Click;
             // 
             // Form1
             // 
@@ -242,11 +249,11 @@
             Controls.Add(label6);
             Controls.Add(label2);
             Controls.Add(btnUpload);
-            Controls.Add(pbUpload);
+            Controls.Add(pbSelectedImage);
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)pbUpload).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbSelectedImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -254,7 +261,7 @@
         #endregion
 
         private Label label1;
-        private PictureBox pbUpload;
+        private PictureBox pbSelectedImage;
         private Button btnUpload;
         private Label label2;
         private Label label3;
