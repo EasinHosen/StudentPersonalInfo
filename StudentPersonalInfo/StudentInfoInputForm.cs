@@ -93,7 +93,23 @@ namespace StudentPersonalInfo
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
+            if(GlobalStaticClass.StudentList.Count > 0)
+            {
+                StudentDetailsViewForm viewForm = new StudentDetailsViewForm();
+                this.Hide();
 
+                viewForm.FormClosed += (s, args) =>
+                {
+                    this.Show();
+                };
+
+                viewForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No students in the list to display.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)
