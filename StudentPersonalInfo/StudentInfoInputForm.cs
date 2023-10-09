@@ -93,7 +93,7 @@ namespace StudentPersonalInfo
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            if(GlobalStaticClass.StudentList.Count > 0)
+            if (GlobalStaticClass.StudentList.Count > 0)
             {
                 StudentDetailsViewForm viewForm = new StudentDetailsViewForm();
                 this.Hide();

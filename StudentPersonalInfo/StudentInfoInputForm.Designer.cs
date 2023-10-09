@@ -77,7 +77,7 @@
             btnUpload.Location = new Point(884, 298);
             btnUpload.Name = "btnUpload";
             btnUpload.Size = new Size(132, 40);
-            btnUpload.TabIndex = 2;
+            btnUpload.TabIndex = 8;
             btnUpload.Text = "Upload Photo";
             btnUpload.UseVisualStyleBackColor = true;
             btnUpload.Click += btnUpload_Click;
@@ -157,7 +157,7 @@
             txtID.Location = new Point(276, 107);
             txtID.Name = "txtID";
             txtID.Size = new Size(380, 23);
-            txtID.TabIndex = 4;
+            txtID.TabIndex = 1;
             txtID.KeyPress += txtID_KeyPress;
             // 
             // txtName
@@ -165,14 +165,14 @@
             txtName.Location = new Point(276, 145);
             txtName.Name = "txtName";
             txtName.Size = new Size(380, 23);
-            txtName.TabIndex = 4;
+            txtName.TabIndex = 2;
             // 
             // txtPhone
             // 
             txtPhone.Location = new Point(276, 179);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(380, 23);
-            txtPhone.TabIndex = 4;
+            txtPhone.TabIndex = 3;
             txtPhone.KeyPress += txtPhone_KeyPress;
             // 
             // txtEamil
@@ -187,21 +187,21 @@
             txtFName.Location = new Point(276, 254);
             txtFName.Name = "txtFName";
             txtFName.Size = new Size(380, 23);
-            txtFName.TabIndex = 4;
+            txtFName.TabIndex = 5;
             // 
             // txtMName
             // 
             txtMName.Location = new Point(276, 295);
             txtMName.Name = "txtMName";
             txtMName.Size = new Size(380, 23);
-            txtMName.TabIndex = 4;
+            txtMName.TabIndex = 6;
             // 
             // txtAddress
             // 
             txtAddress.Location = new Point(276, 332);
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(380, 23);
-            txtAddress.TabIndex = 4;
+            txtAddress.TabIndex = 7;
             // 
             // btnAddMore
             // 
@@ -209,7 +209,7 @@
             btnAddMore.Location = new Point(276, 414);
             btnAddMore.Name = "btnAddMore";
             btnAddMore.Size = new Size(185, 67);
-            btnAddMore.TabIndex = 5;
+            btnAddMore.TabIndex = 9;
             btnAddMore.Text = "Insert More(+)";
             btnAddMore.UseVisualStyleBackColor = true;
             btnAddMore.Click += btnAddMore_Click;
@@ -220,7 +220,7 @@
             btnViewAll.Location = new Point(857, 412);
             btnViewAll.Name = "btnViewAll";
             btnViewAll.Size = new Size(185, 67);
-            btnViewAll.TabIndex = 5;
+            btnViewAll.TabIndex = 10;
             btnViewAll.Text = "View All >>";
             btnViewAll.UseVisualStyleBackColor = true;
             btnViewAll.Click += btnViewAll_Click;
