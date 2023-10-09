@@ -46,6 +46,7 @@
             pbProfile = new PictureBox();
             btnNext = new Button();
             btnPrev = new Button();
+            lblCount = new Label();
             ((System.ComponentModel.ISupportInitialize)pbProfile).BeginInit();
             SuspendLayout();
             // 
@@ -230,11 +231,22 @@
             btnPrev.UseVisualStyleBackColor = true;
             btnPrev.Click += btnPrev_Click;
             // 
+            // lblCount
+            // 
+            lblCount.AutoSize = true;
+            lblCount.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCount.Location = new Point(811, 514);
+            lblCount.Name = "lblCount";
+            lblCount.Size = new Size(111, 13);
+            lblCount.TabIndex = 13;
+            lblCount.Text = "1 out of 20 students";
+            // 
             // StudentDetailsViewForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1074, 536);
+            Controls.Add(lblCount);
             Controls.Add(btnPrev);
             Controls.Add(btnNext);
             Controls.Add(pbProfile);
@@ -280,5 +292,6 @@
         private PictureBox pbProfile;
         private Button btnNext;
         private Button btnPrev;
+        private Label lblCount;
     }
 }
