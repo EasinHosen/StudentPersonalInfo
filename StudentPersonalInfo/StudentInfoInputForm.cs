@@ -61,26 +61,35 @@ namespace StudentPersonalInfo
                 }
                 else
                 {
-                    GlobalStaticClass.StudentList.Add(student);
-
-                    foreach (Control control in this.Controls)
+                    bool exists = GlobalStaticClass.StudentList.Any(x => x.Id == student.Id);
+                    if (exists)
                     {
-                        if (control is TextBox)
+                        MessageBox.Show("Multiple student can't have the same ID!", "Duplicate ID detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        GlobalStaticClass.StudentList.Add(student);
+
+                        foreach (Control control in this.Controls)
                         {
-                            TextBox textBox = (TextBox)control;
-                            textBox.Text = string.Empty;
+                            if (control is TextBox)
+                            {
+                                TextBox textBox = (TextBox)control;
+                                textBox.Text = string.Empty;
+                            }
                         }
-                    }
-                    imageLocation = "";
-                    pbSelectedImage.ImageLocation = GlobalStaticClass.placeholder;
-                    Debug.Print(GlobalStaticClass.StudentList.Count.ToString());
-                    int i = 0;
+                        imageLocation = "";
+                        pbSelectedImage.ImageLocation = GlobalStaticClass.placeholder;
+                        /*Debug.Print(GlobalStaticClass.StudentList.Count.ToString());
+                        int i = 0;
 
-                    foreach (Student s in GlobalStaticClass.StudentList)
-                    {
-                        Debug.Print(GlobalStaticClass.StudentList[i].ToString());
-                        i++;
+                        foreach (Student s in GlobalStaticClass.StudentList)
+                        {
+                            Debug.Print(GlobalStaticClass.StudentList[i].ToString());
+                            i++;
+                        }*/
                     }
+                   
                 }
 
             }
