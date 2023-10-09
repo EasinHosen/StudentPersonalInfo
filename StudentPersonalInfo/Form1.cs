@@ -8,6 +8,7 @@ namespace StudentPersonalInfo
     public partial class Form1 : Form
     {
         private string imageLocation = "";
+        private string emailPattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
         public Form1()
         {
             InitializeComponent();
@@ -50,28 +51,41 @@ namespace StudentPersonalInfo
                 student.ImageLocation = imageLocation;
                 student.Address = txtAddress.Text;
 
-                GlobalStaticClass.StudentList.Add(student);
-
-                foreach (Control control in this.Controls)
+                if (!Regex.IsMatch(txtEamil.Text, emailPattern))
                 {
-                    if (control is TextBox)
+                    MessageBox.Show("Invalid email address. Please enter a valid email address.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (imageLocation == "")
+                {
+                    MessageBox.Show("Please select an Image!", "Invalid Image!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else {
+                    GlobalStaticClass.StudentList.Add(student);
+
+                    foreach (Control control in this.Controls)
                     {
-                        TextBox textBox = (TextBox)control;
-                        textBox.Text = string.Empty;
+                        if (control is TextBox)
+                        {
+                            TextBox textBox = (TextBox)control;
+                            textBox.Text = string.Empty;
+                        }
+                    }
+                    imageLocation = "";
+                    pbSelectedImage.ImageLocation = GlobalStaticClass.placeholder;
+                    Debug.Print(GlobalStaticClass.StudentList.Count.ToString());
+                    int i = 0;
+
+                    foreach (Student s in GlobalStaticClass.StudentList)
+                    {
+                        Debug.Print(GlobalStaticClass.StudentList[i].ToString());
+                        i++;
                     }
                 }
-                imageLocation = "";
-                pbSelectedImage.ImageLocation = "C:\\Users\\easin\\OneDrive\\Documents\\C#\\StudentPersonalInfo\\StudentPersonalInfo\\Resources\\person-placeholder.jpg";
-                Debug.Print(GlobalStaticClass.StudentList.Count.ToString());
-                int i = 0;
-
-                foreach (Student s in GlobalStaticClass.StudentList)
-                {
-                    Debug.Print(GlobalStaticClass.StudentList[i].ToString());
-                    i++;
-                }
+                
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                MessageBox.Show("One or more field is empty!");
+            }
 
         }
 
@@ -84,7 +98,7 @@ namespace StudentPersonalInfo
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                // If it's not a digit or a control key, mark the event as handled
+                
                 e.Handled = true;
             }
         }
@@ -93,20 +107,42 @@ namespace StudentPersonalInfo
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                // If it's not a digit or a control key, mark the event as handled
+                
                 e.Handled = true;
             }
         }
 
-        private void txtEamil_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        /*private void txtEamil_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            string emailPattern = @"^[\w\.-]+@[\w\.-]+\.\w+$"; // Regular expression pattern for a basic email validation
+            string emailPattern = @"^[\w\.-]+@[\w\.-]+\.\w+$"; 
 
             if (!Regex.IsMatch(txtEamil.Text, emailPattern))
             {
                 MessageBox.Show("Invalid email address. Please enter a valid email address.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true; // Cancel the event to keep focus on the TextBox
+                e.Cancel = true; 
+                isFormValid = false; 
             }
-        }
+            else
+            {
+                isFormValid = true; // Set the form validation flag to true when the email is valid
+            }
+        }*/
+
+        /*private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isFormValid)
+            {
+                DialogResult result = MessageBox.Show("There are validation errors. Are you sure you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    isFormValid = true;
+                    e.Cancel = false;
+                }
+            }
+        }*/
     }
 }

@@ -181,7 +181,7 @@
             txtEamil.Name = "txtEamil";
             txtEamil.Size = new Size(380, 23);
             txtEamil.TabIndex = 4;
-            txtEamil.Validating += txtEamil_Validating;
+            //txtEamil.Validating += txtEamil_Validating;
             // 
             // txtFName
             // 
@@ -253,6 +253,7 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
+            //FormClosing += Form1_FormClosing;
             ((System.ComponentModel.ISupportInitialize)pbSelectedImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
