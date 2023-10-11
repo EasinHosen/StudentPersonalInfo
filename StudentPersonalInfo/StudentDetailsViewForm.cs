@@ -85,7 +85,7 @@ namespace StudentPersonalInfo
                 btnNext.Enabled = false;    
             }
             if (GlobalStaticClass.counter == 0) { 
-                btnPrev.Enabled = false;
+                btnPrev.Enabled = false; 
             }
         }
     }

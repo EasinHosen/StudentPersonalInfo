@@ -38,65 +38,77 @@ namespace StudentPersonalInfo
 
         private void btnAddMore_Click(object sender, EventArgs e)
         {
-            try
+            if (String.IsNullOrEmpty(txtID.Text) || String.IsNullOrEmpty(txtName.Text) ||
+                String.IsNullOrEmpty(txtPhone.Text) || String.IsNullOrEmpty(txtEamil.Text) ||
+                String.IsNullOrEmpty(txtFName.Text) || String.IsNullOrEmpty(txtMName.Text) ||
+                String.IsNullOrEmpty(txtAddress.Text))
             {
-                Student student = new Student();
+                MessageBox.Show("One or more fields are empty!", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else {
+                try
+                {
+                    Student student = new Student();
 
-                student.Id = Int32.Parse(txtID.Text);
-                student.Name = txtName.Text;
-                student.Phone = txtPhone.Text;
-                student.Email = txtEamil.Text;
-                student.FatherName = txtFName.Text;
-                student.MotherName = txtMName.Text;
-                student.ImageLocation = imageLocation;
-                student.Address = txtAddress.Text;
+                    student.Id = Int32.Parse(txtID.Text);
+                    student.Name = txtName.Text;
+                    student.Phone = txtPhone.Text;
+                    student.Email = txtEamil.Text;
+                    student.FatherName = txtFName.Text;
+                    student.MotherName = txtMName.Text;
+                    student.ImageLocation = imageLocation;
+                    student.Address = txtAddress.Text;
 
-                if (!Regex.IsMatch(txtEamil.Text, emailPattern))
-                {
-                    MessageBox.Show("Invalid email address. Please enter a valid email address.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (imageLocation == "")
-                {
-                    MessageBox.Show("Please select an Image!", "Invalid Image!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    bool exists = GlobalStaticClass.StudentList.Any(x => x.Id == student.Id);
-                    if (exists)
+                    if (!Regex.IsMatch(txtEamil.Text, emailPattern))
                     {
-                        MessageBox.Show("Multiple student can't have the same ID!", "Duplicate ID detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Invalid email address. Please enter a valid email address.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (imageLocation == "")
+                    {
+                        MessageBox.Show("Please select an Image!", "Invalid Image!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        GlobalStaticClass.StudentList.Add(student);
-
-                        foreach (Control control in this.Controls)
+                        bool exists = GlobalStaticClass.StudentList.Any(x => x.Id == student.Id);
+                        if (exists)
                         {
-                            if (control is TextBox)
-                            {
-                                TextBox textBox = (TextBox)control;
-                                textBox.Text = string.Empty;
-                            }
+                            MessageBox.Show("Multiple student can't have the same ID!", "Duplicate ID detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        imageLocation = "";
-                        pbSelectedImage.ImageLocation = GlobalStaticClass.placeholder;
-                        /*Debug.Print(GlobalStaticClass.StudentList.Count.ToString());
-                        int i = 0;
-
-                        foreach (Student s in GlobalStaticClass.StudentList)
+                        else
                         {
-                            Debug.Print(GlobalStaticClass.StudentList[i].ToString());
-                            i++;
-                        }*/
-                    }
-                   
-                }
+                            GlobalStaticClass.StudentList.Add(student);
 
+                            foreach (Control control in this.Controls)
+                            {
+                                if (control is TextBox)
+                                {
+                                    TextBox textBox = (TextBox)control;
+                                    textBox.Text = string.Empty;
+                                }
+                            }
+                            imageLocation = "";
+                            pbSelectedImage.ImageLocation = GlobalStaticClass.placeholder;
+                            /*Debug.Print(GlobalStaticClass.StudentList.Count.ToString());
+                            int i = 0;
+
+                            foreach (Student s in GlobalStaticClass.StudentList)
+                            {
+                                Debug.Print(GlobalStaticClass.StudentList[i].ToString());
+                                i++;
+                            }*/
+                        }
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.Print(ex.Message);
+                    MessageBox.Show("One or more fields are empty!", "Invalid Input!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("One or more field is empty!");
-            }
+            
 
         }
 
